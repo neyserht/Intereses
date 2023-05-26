@@ -56,8 +56,19 @@ public class AnimalModel {
     public String buscarAnimal(ArrayList<AnimalModel> anim, String tipo){
         //System.out.println("Prueba 1");
 
+        Collections.shuffle(anim);
 
         ArrayList<AnimalModel> animalFinal = new ArrayList<>();
+
+        for (AnimalModel x : anim) {
+            if(x.getTipo().equalsIgnoreCase(tipo)){
+                System.out.println("Ruta: "+ x.getRuta());
+                animalFinal.add(x);
+                //break;
+            }
+        }
+
+        /*
 
         anim.forEach(x -> {
             if(x.getTipo().equalsIgnoreCase(tipo)){
@@ -66,8 +77,10 @@ public class AnimalModel {
             }
         });
 
+         */
+
         // Desordenar Lista
-        Collections.shuffle(animalFinal);
+
 
         // Crear variable para poder ingresar el HTML equivalente al resultado de la busqueda
         String resultado1 = "";
